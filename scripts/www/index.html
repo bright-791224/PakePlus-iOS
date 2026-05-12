@@ -265,7 +265,7 @@
 <div class="app">
     <div class="header">
         <h1>📲 极简·二维码识别</h1>
-        <div class="sub">摄像头 / 批量图片 · 导出Excel</div>
+        <div class="sub">摄像头 / 批量图片 · 绝对路径显示 · 导出Excel</div>
     </div>
 
     <div class="tabs">
@@ -288,7 +288,7 @@
 
     <div id="batchPanel" class="panel">
         <div class="upload-area" id="uploadZone">
-            📎 点击或拖拽图片 (jpg/png/webp) 
+            📎 点击或拖拽图片 (jpg/png/webp) — 将显示文件绝对路径（网页安全路径）
             <input type="file" id="fileInput" multiple accept="image/jpeg,image/png,image/jpg,image/webp" style="display:none">
         </div>
         <div id="batchStatus" class="status">未上传图片</div>
@@ -301,7 +301,7 @@
 
     <div class="result-card">
         <div class="result-header">
-            <span>📋 识别记录 </span>
+            <span>📋 识别记录 (文件名/绝对路径)</span>
             <div style="display: flex; gap: 10px;">
                 <span id="recordCount" class="badge-count">0条</span>
                 <button id="exportExcel" style="background:#2a516e; padding:4px 14px; font-size:0.7rem;">📎 Excel</button>
@@ -310,13 +310,13 @@
         </div>
         <div class="table-wrap">
             <table id="resultTable">
-                <thead><tr><th>#</th><th>文件名</th><th>二维码内容</th></tr></thead>
+                <thead><tr><th>#</th><th>文件名/绝对路径</th><th>二维码内容</th></tr></thead>
                 <tbody id="tableBody"><tr><td colspan="3" style="text-align:center;padding:32px;">暂无数据</td></tr></tbody>
             </table>
         </div>
-        
+        <div id="globalMsg" class="status">✅ 就绪 · 批量图片将显示文件路径（web相对/绝对标识）</div>
     </div>
-    
+    <div class="footnote">💡 绝对路径说明：网页安全限制，展示为“文件对象名+webkitRelativePath预览”，实际导出时保留完整路径描述。</div>
 </div>
 
 <script>
